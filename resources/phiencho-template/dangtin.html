@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+  <title>Status Can Tho</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
+</head>
+<body>
+
+	<div class="section">
+		<div class="container">
+		<div class="row">  <h1> From Đăng Tin </h1> </div>
+			<form action="" method='post'>
+			<div class="row">
+				<div class="col m4">
+					
+						<div class="input-field">
+						<input type='text' Placeholder="Nhập vào đây"  name='companyname' require>
+						<label> Tên Công Ty </label>
+						</div>
+						<div class="input-field">
+						<input type='text' Placeholder="Nhập vào đây địa chỉ "  name='address' require>
+						<label> Địa chỉ  </label>
+						</div>
+						<div class="input-field">
+							<p> Nơi làm việc  </p>
+							<p>
+						      <input type="checkbox"  id='cantho' name='noilamviec' value='cantho'/>
+						      <label for='cantho' >Cần Thơ</label> 
+						      <input type="checkbox"  id='angiang' name='noilamviec'  value = 'angiang' />
+						      <label for='angiang' >An Giang</label>
+						      <input type="checkbox"  id='mientay' name='noilamviec'  value = 'mientay' />
+						      <label for='mientay' > Các tỉnh Miền Tây</label>
+							</p>
+
+						</div>
+						<br>
+						<div class="input-field">
+							
+						 <input type="text"  id='khac' name='noilamviec'  placeholder='Nhập tỉnh khác vào đây, cách nhau bởi dấu "," '  />
+						 <label for='khac' >Tỉnh Khác </label>	
+
+						</div>
+						<div class="input-field">
+							
+							  <input type="date" class="datepicker"  name='hannop'>
+							  <label>Hạn nộp</label>
+
+						</div>
+						<div class="input-field">
+							<textarea id="textarea1" class="materialize-textarea" name='vitri' Placeholder='Nhập cách nhau bởi dấu ","'></textarea>
+							<label>Vị trí tuyển dụng</label>
+
+
+						</div>						
+						 
+
+				</div>
+
+				<div class="col m8">
+					
+					<div class="input-field">
+						
+						<textarea id="textarea1" class="materialize-textarea" name='noidung' Placeholder=" Nội dung chi tiết "></textarea>
+						<label>Nội dung</label>
+
+					</div>
+					<div class="input-filed">
+						
+						 <button class="btn waves-effect waves-light" type="submit" name="action">Submit   </button>
+        
+					</div>			
+
+				</div>
+
+			</div>
+				
+			</form>
+		</div>
+	</div>
+</body>
+
+ <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+  <script type="text/javascript">
+  	  $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15 // Creates a dropdown of 15 years to control year
+  });
+      
+
+  </script>
+</html>
