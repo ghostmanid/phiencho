@@ -19,7 +19,7 @@ class DomController extends Controller
      */
     public function index()
     {
-        $site ='http://canthoinfo.com/';
+        $site ='http://www1.canthoinfo.com/';
         $client = new Client();
         $crawler = $client->request('GET', $site);
         $crawler = $crawler->filter('table > tr > td > table');
@@ -57,15 +57,17 @@ class DomController extends Controller
                 'diachi'=> ' ',    
                 'vitri' =>  'update',
                 'hannop'=> Carbon::now()->addDay(30),
-                'noidung'=> "",
+                'noidung'=> $this->domNoiDung($site.$data_link[$i]),
             );   
             }
             
 
         }
 
-        $job = new Job();
-        $job->insert($data_thongtin);
+         // $job = new Job();
+         // $job->insert($data_thongtin);
+
+        
         
        
     }
@@ -133,6 +135,25 @@ class DomController extends Controller
     */
     function domNoiDung($url)
     {
+
+        if(!is_numeric(strpos($url, 'http://',8)))
+        {
+        echo $url;
+        $client = new Client();
+        $crawler = $client->request('GET', $url);
+         $crawler = $crawler->filter('table > tr > td > table');
+        $crawler= $crawler->filter('tr>td>table');         
+         $crawler = $crawler->eq(3)->html();
+         return $crawler;
+        }
+        else
+        {
+            return  "rong";
+        }
+
+
+       
+            
 
     }
    

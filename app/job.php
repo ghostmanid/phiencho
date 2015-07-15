@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     protected $table='congviec';
-    protected $fillable= array('ten_cty','diachi','han_nop','vitri','noilamviec');
+    protected $fillable= array('ten_cty','diachi','han_nop','vitri','noilamviec','noidung','url');
 
      function insert($data)
      {
@@ -26,7 +26,8 @@ class Job extends Model
 	     	'url'	=>$data[$i]['url'],
 	     	);
 	    	Job::create($tam[$i]); 				
-     	}
+           
+     	} 
      	
      	
 

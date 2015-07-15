@@ -9,7 +9,7 @@
                 <div class="card-title valign-wrapper ">
                   <div class='col m10  black-text '> <strong > {{$job->ten_cty}} </strong> </div>
                     <div class='col m2 right-align truncate'> 
-                     <a href="#" class='tooltipped darken-4'  data-delay="50" data-tooltip="Cần Thơ " >  CT</a> 
+                     <!-- <button  class='btn-floating btn-small tooltipped'  data-delay="50" data-tooltip="Báo Lỗi Cho chúng tôi" ><i class='material-icons'>warning</i></button>  -->
                     </div>
                 </div>   
               <div class="card-content ">
