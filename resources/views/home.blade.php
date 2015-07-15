@@ -16,7 +16,7 @@
     <div class="nav-fixed container">
        <ul class='nav-wrapper right'>
        <li> <a href="{{ url('/')}}" class='green'> <i class='material-icons'>work</i> </a> </li>
-        <li> <a  href="dangtin" class="btn-flat  green-text">  <strong> Đăng tuyển dụng   </strong></a></li>
+        <li> <a  href="#" class="btn-flat  green-text disabled"  onclick="Materialize.toast('Xin lỗi Bạn ! chức năng  đang trong giai đoạn hoàn thiện!', 4000)">  <strong> Đăng tuyển dụng   </strong></a></li>
         <li>   <a href="#" class='btn-flat'> <strong> Liên hệ  </strong> </a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">

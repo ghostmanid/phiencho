@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Goutte\Client;
+use App\job;
+use Carbon\Carbon;
 
 class DomController extends Controller
 {
@@ -17,7 +19,7 @@ class DomController extends Controller
      */
     public function index()
     {
-        $site ='http://canthoinfo.com';
+        $site ='http://canthoinfo.com/';
         $client = new Client();
         $crawler = $client->request('GET', $site);
         $crawler = $crawler->filter('table > tr > td > table');
@@ -27,6 +29,7 @@ class DomController extends Controller
         // link 
         $data_link = $crawler->filter('tr>td>a')->extract('href');
         
+        
         $data_link = $this->xoaPhanTu($data_link);
                 
         //vitrituyendung
@@ -35,7 +38,7 @@ class DomController extends Controller
         for ($i=1; $i < count($crawler) ; $i=$i+3) { 
             
              $data_vitri= $crawler->eq($i)->filter('tr>td');
-             $data_vitri= $data_vitri->filter('font')->extract('_text');
+             $data_vitri= $data_vitri->filter('b')->extract('_text');
              $arr_vitri[$j] = $data_vitri;
             $j++;
              
@@ -45,29 +48,24 @@ class DomController extends Controller
         $data_thongtin = array();
         for ($i=0; $i < count($data_link); $i++) { 
             
-            $data_vt = '';
-                      
-            for ($j=2; $j <count($arr_vitri[$i])-2; $j++) { 
-                     $data_vt = trim($data_vt.$arr_vitri[$i][$j].',');
-                }
-            $data_thongtin[$i] = array(
+                
+            if($this->checkURL($site.$data_link[$i]))
+            {
+                $data_thongtin[$i] = array(
                 'url' => $site.$data_link[$i],
-                'TenCty'=> $arr_vitri[$i][0],
-                'diachi'=> '',    
-                'vitri' =>   $data_vt,
-                'hanop'=> '???',
-
-            );
+                'tencty'=> $arr_vitri[$i][0],
+                'diachi'=> ' ',    
+                'vitri' =>  'update',
+                'hannop'=> Carbon::now()->addDay(30),
+                'noidung'=> "",
+            );   
+            }
+            
 
         }
-        echo "<pre>";
-             print_r($data_thongtin) ;
-                echo "</pre>";
-            
-           
-        
-            
-                 
+
+        $job = new Job();
+        $job->insert($data_thongtin);
         
        
     }
@@ -96,6 +94,46 @@ class DomController extends Controller
            $i++;
         }
         return $kq;
+    }
+
+    /**
+    * xoa phan tu du thua, xoa  khoang trang du thua
+    */
+    private function DondepString($str)
+    {
+
+        $str = preg_replace('/\s+/', ' ',$str); // xoa khoang trang du thua
+        $str =  trim($str);
+        return $str;
+    }
+
+    private function  checkURL($url)
+    {
+        $day = Carbon::now();
+        $job = new Job;
+        $job = $job::where('url','=',$url);
+       
+        if(isset($job->url))
+        {
+              return false;
+            
+        }
+        else
+        {
+            return true; // insert
+            
+
+        }
+        
+    }
+
+    /**
+    * get noi dung
+    *
+    */
+    function domNoiDung($url)
+    {
+
     }
    
 }

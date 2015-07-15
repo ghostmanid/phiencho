@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\job;
 
 class HomeController extends Controller
 {
@@ -16,8 +17,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-       return view('pages.jobs');
+        $data['job'] = Job::all();
+        
+       return view('pages.jobs',$data);
 
     }
 
@@ -25,10 +27,13 @@ class HomeController extends Controller
     * Load trang  the hien  noi dung chi tiet 
     * @return  1 mang du lieu
     */
-    public function chitiet ()
+    public function chitiet ($param)
     {
-
-        return view('pages.details');
+        if(isset($param))
+        {
+            $data['job'] =  Job::find($param[0]);
+        }
+        return view('pages.details',$data);
     }
 
 
