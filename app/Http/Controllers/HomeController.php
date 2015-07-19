@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\job;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class HomeController extends Controller
 {
@@ -29,9 +30,17 @@ class HomeController extends Controller
     */
     public function chitiet ($param)
     {
+        $data= array();
         if(isset($param))
         {
-            $data['job'] =  Job::find($param[0]);
+            try
+            {
+                 $data['job'] =  Job::findOrFail($param);
+            }
+            catch(ModelNotFoundException $e)
+            {
+                 redirect('/');
+            }
         }
         return view('pages.details',$data);
     }

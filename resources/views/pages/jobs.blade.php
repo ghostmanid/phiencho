@@ -5,9 +5,11 @@
         <div class="col s9 m9">
            
             @foreach($job as $job)
-            <div class="card hoverable small " style='border-bottom: 5px solid  #4caf50'>
+            <div class="card hoverable small " style='border-top: 10px solid <?php 
+              $color = array ( "#2196f3","#f44336","#ffc107","#8bc34a","#9c27b0");
+             echo $color[rand(0,4)];?> ' >
                 <div class="card-title valign-wrapper ">
-                  <div class='col m10  black-text '> <strong > {{$job->ten_cty}} </strong> </div>
+                  <div class='col m10  black-text truncate'> <strong > {{$job->ten_cty}} </strong> </div>
                     <div class='col m2 right-align truncate'> 
                      <!-- <button  class='btn-floating btn-small tooltipped'  data-delay="50" data-tooltip="Báo Lỗi Cho chúng tôi" ><i class='material-icons'>warning</i></button>  -->
                     </div>
@@ -15,7 +17,7 @@
               <div class="card-content ">
                
                   <p>  
-                    <strong>  Vị trí tuyển dụng: </strong>
+                    <strong> Tuyển dụng: </strong>
                   <ul>
                    
                      @for($i=0; $i < count($c = explode('-',$job->vitri));$i++)
@@ -33,8 +35,8 @@
               <div class="card-action">
                 <div class="col m9 s6 "> 
                   <div>
-                    <strong> Hạn nộp : <span class='red-text'> {{date('d/m/y',strtotime($job->han_nop))}} </span>  </strong> <br>
-                    <i style='font-size:12px' class='hide-on-small-only'> Update...</i> 
+                    <strong> Hạn nộp : <span class='red-text'> {{date('d-m-Y',strtotime($job->han_nop))}} </span>  </strong> <br>
+                    <i style='font-size:12px' class='hide-on-small-only'>{{$job->diachi}} </i> 
                   </div>
                  </div>
                 <div class="col m3 s6 ">                  
