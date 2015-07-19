@@ -5,7 +5,7 @@
         <div class="col s9 m9">
            
             @foreach($job as $job)
-            <div class="card hoverable small " style='border-top: 10px solid <?php 
+            <div class="card hoverable small " style='border-top: 1px solid <?php 
               $color = array ( "#2196f3","#f44336","#ffc107","#8bc34a","#9c27b0");
              echo $color[rand(0,4)];?> ' >
                 <div class="card-title valign-wrapper ">
@@ -40,7 +40,7 @@
                   </div>
                  </div>
                 <div class="col m3 s6 ">                  
-                  <a href="viec/{{$job->id}}" class='btn-floating right waves-effect waves-light green  tooltipped'  data-delay="50" data-tooltip="Xem chi tiết " >    
+                  <a href="viec/{{$job->id}}" class='btn-floating right waves-effect waves-light green tooltipped'  data-delay="50" data-tooltip="Xem chi tiết " >    
                     <i class=" large material-icons">info</i>
                   </a>
                 </div>

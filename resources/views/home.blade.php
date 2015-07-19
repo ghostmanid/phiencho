@@ -11,7 +11,7 @@
   {!! Html::style('public/css/style.css', array('media'=>'screen,projection'))!!}
 
 </head>
-<body style='background:url("images/greyzz.png");'>
+<body style='background:url("<?php echo url(); ?>/public/images/greyzz.png");'>
  <nav class="grey lighten-5" role="navigation">
     <div class="nav-fixed container">
        <ul class='nav-wrapper right'>

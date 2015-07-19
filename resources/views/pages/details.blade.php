@@ -5,7 +5,8 @@
 <div class="row">
 
     @if($job->noidung!=null)
-     {!! $job->noidung !!}
+      
+     {!! str_replace('src="logo','src="http://canthoinfo.com/logo/',$job->noidung) !!}
 
     @else
         
