@@ -11,7 +11,11 @@
                 <div class="card-title valign-wrapper ">
                   <div class='col m10  black-text truncate'> <strong > {{$job->ten_cty}} </strong> </div>
                     <div class='col m2 right-align truncate'> 
-                     <!-- <button  class='btn-floating btn-small tooltipped'  data-delay="50" data-tooltip="Báo Lỗi Cho chúng tôi" ><i class='material-icons'>warning</i></button>  -->
+                      @if(Auth::check())
+                        <a href="{{url('/')}}/job/{{$job->id}}/edit"><i class='material-icons'>edit</i></a>
+                        <a href="{{url('/')}}/job/{{$job->id}}/delete"><i class='material-icons'>delete</i></a>
+                      @endif
+                     
                     </div>
                 </div>   
               <div class="card-content ">

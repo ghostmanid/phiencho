@@ -11,6 +11,10 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class HomeController extends Controller
 {
+    function  __construct()
+    {
+        $this->middleware('auth', ['only' =>array('update','edit','destroy')]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -85,7 +89,7 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+       return "page edit";
     }
 
     /**
@@ -107,6 +111,7 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // edit
+        return "this delete";
     }
 }
