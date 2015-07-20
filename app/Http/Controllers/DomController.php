@@ -72,9 +72,9 @@ class DomController extends Controller
                         
                         $data_thongtin[$i] = array(
                         'url' => $site.$data_link[$i],
-                        'tencty'=> $domNoidung['tencty'],
-                        'diachi'=> $domNoidung['diachi'],     // aly vi tri thong qua noi dung chinh
-                        'vitri' =>  $arr_vitri[$i]['vitri'],
+                        'tencty'=>  $this->DondepString($domNoidung['tencty']),
+                        'diachi'=> $this->DondepString($domNoidung['diachi']),     // aly vi tri thong qua noi dung chinh
+                        'vitri' =>  $this->DondepString($arr_vitri[$i]['vitri']),
                         'hannop'=> $domNoidung['hannop'],
                         'noidung'=> $domNoidung['noidung'],
                     );   
@@ -218,8 +218,22 @@ class DomController extends Controller
             $data['hannop'] = date('Y-m-d', strtotime($date[0]));
            
         
-        return $data;
-         
+        return $data;         
+
+
+    }
+    function  autoXoa()
+    {
+        try
+        {
+            $job = Job::where('han_nop',"<",Carbon::now()->addDay(1))->get();    
+            
+        }
+        catch(ModelNotFoundException $e)
+        {
+
+        }
+        
 
 
     }

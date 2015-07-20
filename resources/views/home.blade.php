@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   {!! Html::style('public/css/materialize.css', array('media'=> 'screen,projection')) !!}
   {!! Html::style('public/css/style.css', array('media'=>'screen,projection'))!!}
-
+  <script src="//cdn.ckeditor.com/4.5.1/full/ckeditor.js"></script>
 </head>
 <body style='background:url("<?php echo url(); ?>/public/images/greyzz.png");'>
  <nav class="grey lighten-5" role="navigation">
@@ -102,10 +102,7 @@
 
 
      });
-     $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
-      });
+    
     </script>
 
   </body>

@@ -13,7 +13,7 @@
                     <div class='col m2 right-align truncate'> 
                       @if(Auth::check())
                         <a href="{{url('/')}}/job/{{$job->id}}/edit"><i class='material-icons'>edit</i></a>
-                        <a href="{{url('/')}}/job/{{$job->id}}/delete"><i class='material-icons'>delete</i></a>
+                        <a href="{{url('/')}}/job/{{$job->id}}/destroy"><i class='material-icons'>delete</i></a>
                       @endif
                      
                     </div>
@@ -24,7 +24,7 @@
                     <strong> Tuyển dụng: </strong>
                   <ul>
                    
-                     @for($i=0; $i < count($c = explode('-',$job->vitri));$i++)
+                     @for($i=0; $i < count($c = explode(',',$job->vitri));$i++)
 
                       <li> {{$c[$i]}} </li>
 
@@ -39,7 +39,7 @@
               <div class="card-action">
                 <div class="col m9 s6 "> 
                   <div>
-                    <strong> Hạn nộp : <span class='red-text'> {{date('d-m-Y',strtotime($job->han_nop))}} </span>  </strong> <br>
+                    <strong> Hạn nộp : <span class='red-text'> {{date('d/m/Y',strtotime($job->han_nop))}} </span>  </strong> <br>
                     <i style='font-size:12px' class='hide-on-small-only'>{{$job->diachi}} </i> 
                   </div>
                  </div>

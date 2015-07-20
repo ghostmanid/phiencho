@@ -4,7 +4,7 @@
 
 <div class="row">
 
-    @if($job->noidung!=null)
+    @if(!is_array($job))
       
      {!! str_replace('src="logo','src="http://canthoinfo.com/logo/',$job->noidung) !!}
 

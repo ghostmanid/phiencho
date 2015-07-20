@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class HomeController extends Controller
 {
+    protected $redirectPath = '/';
     function  __construct()
     {
         $this->middleware('auth', ['only' =>array('update','edit','destroy')]);
@@ -39,14 +40,16 @@ class HomeController extends Controller
         {
             try
             {
-                 $data['job'] =  Job::findOrFail($param);
+                 $data['job'] = Job::findOrFail($param);
+                 return view('pages.details',$data);
             }
             catch(ModelNotFoundException $e)
             {
-                 redirect('/');
+                return redirect('/');
             }
+            
         }
-        return view('pages.details',$data);
+        
     }
 
 
@@ -88,8 +91,18 @@ class HomeController extends Controller
      * @return Response
      */
     public function edit($id)
-    {
-       return "page edit";
+    {        
+        $data= array();
+        try
+        {
+          $data['job'] = Job::findOrFail($id);  
+        }
+        catch(ModelNotFoundException $e)
+        {
+            redirect('/');
+        }
+        
+       return view('pages/edit',$data);
     }
 
     /**
@@ -98,9 +111,21 @@ class HomeController extends Controller
      * @param  int  $id
      * @return Response
      */
-    public function update($id)
+    public function update(Request $request)
     {
-        //
+        if($request->isMethod('post'))
+        {
+            $data =  $request->all();
+            $job = new Job;
+            $job->updateJob($data);
+            $success['url']= url('/');
+            $success['title']= 'Update Success - Redirect to index';
+            return view('success',$success);
+        }
+        else
+        {
+            redirect('/');
+        }
     }
 
     /**
@@ -110,8 +135,18 @@ class HomeController extends Controller
      * @return Response
      */
     public function destroy($id)
-    {
-        // edit
-        return "this delete";
+    {   
+        try
+        {
+            $job = Job::findOrFail($id);
+            $job->deletejob($id);    
+        }
+        catch (ModelNotFoundException $e)
+        {
+            return redirect('/');
+        }
+        
+        
+        
     }
 }

@@ -4,7 +4,7 @@
 @section('content')
 <div class="card">
    <div class="card-content">
-   <form method="POST" action="/auth/login">
+   <form method="POST" action="{{url('/')}}/auth/login">
     {!! csrf_field() !!}
         <div class="input-field">
         <input type="email" name="email" value="{{ old('email') }}">
