@@ -16,7 +16,7 @@ Cần Thơ  tuyển {!!$job->vitri!!}
 @stop
 @section('content')
 
-<div class="row z-depth-1 grey lighten-5">
+<div class="card-panel">
 
     @if(!is_array($job))
       
