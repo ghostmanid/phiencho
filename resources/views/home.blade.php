@@ -4,6 +4,12 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <title> @yield('title') </title>
+  <meta name='revisit-after' content='1 days' />
+  <meta name="description" content="@yield('description')"/>
+  <meta name="keywords" content="@yield('metaKey')" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="robots" content="noodp,index,follow" />
+  <link rel="canonical" href="@yield('canonical')" />
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -20,10 +26,10 @@
         <li>   <a href="#" class='btn-flat'> <strong> Liên hệ  </strong> </a></li>
       </ul>
       <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Post Jobs </a></li>
-        <li> <a href="">Contact</a> </li>
+        <li><a href="#">Đăng tuyển dụng </a></li>
+        <li> <a href="#">Liên hệ </a></li>
       </ul>
-      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="green-text material-icons">menu</i></a>
     </div>
 </nav>
       
@@ -34,12 +40,8 @@
   </div>
 </div>
 
-@section('footer')
-  
 
-@section('footer')
-
-  <footer class="page-footer green">
+ <footer class="page-footer green">
     
       <div class="container white-text">
       Design by Ghostmanid
@@ -74,7 +76,7 @@
       <p>StatusCanTho -Cảm ơn bạn đã  truy cập và sử dụng  công cụ tìm kiếm.</p>
     </div>
   </div>
-          
+       
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -104,6 +106,19 @@
      });
     
     </script>
+
+
+<!-- google -->
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48556623-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
 
   </body>
 </html>

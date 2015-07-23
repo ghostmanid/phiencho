@@ -1,14 +1,28 @@
 @extends('home')
-@section('title', 'StatusCanTho.Com - Tuyen dung, viec lam Can Tho')
+@section('title')
+ Cần Thơ  tuyển dung|| Tuyen Dung Can Tho || statusCanTho.com
+@stop
+
+@section('canonical')
+{{url()}}
+@stop
+
+@section('metaKey')
+tuyển dụng cần thơ, việc làm cần thơ, it cần thơ, kế toán,  nhân viên kinh doanh,  trình dược viên
+@stop
+
+@section ('description')
+Cần Thơ  tuyển dung, tuyen dung can tho, viec lam can tho, can tho viec lam, viec lam, can tho
+@stop
 @section('content')
 <div class="row">
         <div class="col s9 m9">
            
             @foreach($job as $job)
-            <div class="card hoverable small " style='border-top: 1px solid <?php 
+            <div class="card hoverable small "  >
+                <div class="card-title valign-wrapper grey lighten-3 " style='border-bottom: 2px solid <?php 
               $color = array ( "#2196f3","#f44336","#ffc107","#8bc34a","#9c27b0");
              echo $color[rand(0,4)];?> ' >
-                <div class="card-title valign-wrapper ">
                   <div class='col m10  black-text truncate'> <strong > {{$job->ten_cty}} </strong> </div>
                     <div class='col m2 right-align truncate'> 
                       @if(Auth::check())
@@ -18,22 +32,21 @@
                      
                     </div>
                 </div>   
-              <div class="card-content ">
+              <div class="card-content truncate">
                
-                  <p>  
                     <strong> Tuyển dụng: </strong>
-                  <ul>
+                  <dl>
                    
                      @for($i=0; $i < count($c = explode(',',$job->vitri));$i++)
 
-                      <li> {{$c[$i]}} </li>
+                      <li class='blue-text'> {{$c[$i]}} </li>
 
                      @endfor
 
 
                   
-                  </ul>
-               </p>
+                  </dl>
+               
               
               </div>
               <div class="card-action">
@@ -43,11 +56,10 @@
                     <i style='font-size:12px' class='hide-on-small-only'>{{$job->diachi}} </i> 
                   </div>
                  </div>
-                <div class="col m3 s6 ">                  
-                  <a href="viec/{{$job->id}}" class='btn-floating right waves-effect waves-light green tooltipped'  data-delay="50" data-tooltip="Xem chi tiết " >    
-                    <i class=" large material-icons">info</i>
+                
+                <a href="viec/{{$job->id}}" class='btn grey lighten-5 waves-effect waves-light red-text tooltipped'  data-delay="50" data-tooltip="Xem chi tiết " >    
+                    chi tiết
                   </a>
-                </div>
               </div>        
             </div> <!-- End card -->
             @endforeach
@@ -73,7 +85,20 @@
                <strong> <h5> Việc ở đâu?</h5>  </strong>
             </div>
             <div class="card-content">
-              <a href="#">Cần Thơ</a>, <a href="#">Vĩnh Long</a>, <a href="#">Hồ Chí Minh</a>, <a href="#">An Giang</a>
+                
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- statusCanTho -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-8343667052257229"
+                     data-ad-slot="7818425991"
+                     data-ad-format="auto"></ins>
+                <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+
+
+
             </div>
           </div>
 

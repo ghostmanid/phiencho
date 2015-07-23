@@ -53,8 +53,7 @@ class DomController extends Controller
                 $arr_vitri[$j]['vitri']= " ";
             }
             $j++;    
-            }
-            
+            }           
              
         }
        
